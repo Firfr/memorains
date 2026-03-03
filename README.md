@@ -94,7 +94,7 @@ name: memorains
 services:
   memorains_mariadb:
     container_name: memorains_mariadb
-    image: docker.code.firfe.work/mariadb:11.8.6-noble
+    image: mariadb:11.8.6-noble
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: document
