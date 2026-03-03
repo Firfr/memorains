@@ -1,0 +1,39 @@
+name: memorains-dev
+
+services:
+  memorains_mariadb:
+    container_name: memorains_mariadb
+    image: docker.code.firfe.work/mariadb:11.8.6-noble
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: document
+      MYSQL_USER: doc
+      MYSQL_PASSWORD: 123456
+    ports:
+      - 3306:3306
+    volumes:
+      - ./代码/mariadb-conf:/etc/mysql/conf.d
+      - ./开发/mariadb_data:/var/lib/mysql
+
+  memorains:
+    container_name: memorains
+    image: firfe/memorains:0.8.66
+    stdin_open: true
+    tty: true
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=memorains_mariadb
+      - DB_PORT=3306
+      - DB_USER=doc
+      - DB_PASSWORD=123456
+      - DB_NAME=document
+    ports:
+      - 1234:80
+      - 1235:443
+    depends_on:
+      - memorains_mariadb
+
+networks:
+  default:
+    name: memorains
+    driver: bridge
