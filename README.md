@@ -16,12 +16,13 @@
 如果镜像拉取失败，请B站发私信，或提issues，  
 华为云上的镜像仓库默认推送的镜像不是公开的，有可能是我忘记设置公开了。
 
-当前制作镜像版本(或截止更新日期)：0.8.66
+当前制作镜像版本(或截止更新日期)：0.11.0
 
 首先感谢原作者的开源。  
 原项目没有docker镜像，我修改和制作了docker镜像。
 
 修改说明
+
 - 完善部分中文
 - 优化镜像制作流程，制作镜像
   - 优化部署流程，从原作者给出的3个容器改成2个容器
@@ -35,7 +36,7 @@
 
 只做了汉化和简单修改，有问题，请到原作者仓库处反馈。
 
-欢迎关注我B站账号 [秦曱凧](https://space.bilibili.com/17547201) (读作 qín yuē zhēng)  
+欢迎关注我B站账号 [秦曱凧](https://space.bilibili.com/17547201) (读作 qín yuē zhēng)
 
 有需要帮忙部署这个项目的朋友,一杯奶茶,即可程远程帮你部署，需要可联系。  
 微信号 `E-0_0-`  
@@ -54,20 +55,20 @@
 - 国内仓库
   - AMD64镜像
     ```bash
-    swr.cn-north-4.myhuaweicloud.com/firfe/memorains:0.8.66
+    swr.cn-north-4.myhuaweicloud.com/firfe/memorains:0.11.0
     ```
   - ARM64镜像
     ```bash
-    swr.cn-north-4.myhuaweicloud.com/firfe/memorains:0.8.66-arm64
+    swr.cn-north-4.myhuaweicloud.com/firfe/memorains:0.11.0-arm64
     ```
 - DockerHub仓库
   - AMD64镜像
     ```bash
-    firfe/memorains:0.8.66
+    firfe/memorains:0.11.0
     ```
   - ARM64镜像
     ```bash
-    firfe/memorains:0.8.66-arm64
+    firfe/memorains:0.11.0-arm64
     ```
 
 ## 部署前准备
@@ -77,13 +78,14 @@
 - 创建一个数据库配置文件目录
 - 在这个目录中创建一个数据库配置文件，名字 `custom.cnf`
 - 文件内容
+
   ```ini
   [mysqld]
   max_allowed_packet = 512M
-  
+
   [client]
   max_allowed_packet = 512M
-  
+
   ```
 
 ## 部署
@@ -108,7 +110,7 @@ services:
 
   memorains:
     container_name: memorains
-    image: firfe/memorains:0.8.66
+    image: firfe/memorains:0.11.0
     stdin_open: true
     tty: true
     environment:
@@ -128,7 +130,6 @@ networks:
   default:
     name: memorains
     driver: bridge
-
 ```
 
 ## 环境变量说明
@@ -155,5 +156,5 @@ networks:
 ## 效果截图
 
 | ![所有笔记](图片/所有笔记.jpg) | ![文章](图片/文章.jpg) |
-|-|-|
-| ![画板](图片/画板.jpg) | ![待办](图片/待办.jpg) |
+| ------------------------------ | ---------------------- |
+| ![画板](图片/画板.jpg)         | ![待办](图片/待办.jpg) |

@@ -17,7 +17,7 @@ services:
 
   memorains:
     container_name: memorains
-    image: firfe/memorains:0.8.66
+    image: firfe/memorains:0.11.0
     stdin_open: true
     tty: true
     environment:

@@ -47,5 +47,5 @@ LABEL 镜像制作者="https://space.bilibili.com/17547201"
 LABEL GitHub主页="https://github.com/Firfr/memorains"
 LABEL Gitee主页="https://gitee.com/firfe/memorains"
 
-# docker buildx build --platform linux/amd64 --tag firfe/memorains:0.8.66 --load .
-# docker buildx build --platform linux/arm64 --tag firfe/memorains:0.8.66-arm64 --load .
+# docker buildx build --platform linux/amd64 --tag firfe/memorains:0.11.0 --load .
+# docker buildx build --platform linux/arm64 --tag firfe/memorains:0.11.0-arm64 --load .
